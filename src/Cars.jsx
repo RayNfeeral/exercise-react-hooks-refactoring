@@ -1,15 +1,14 @@
 // src/Cars.jsx
 
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import CarsContext from './context/CarsContext';
 import carBlue from './images/carBlue.jpeg';
 import carRed from './images/carRed.jpeg';
 import carYellow from './images/carYellow.jpeg';
 
-class Cars extends Component {
-  render() {
-    const { redCar, blueCar, yellowCar } = this.context.cars;
-    const { moveCar } = this.context;
+const Cars = () => {
+
+    const { cars: { redCar, blueCar, yellowCar }, moveCar } = useContext(CarsContext);
     return (
       <div>
         <div>
@@ -53,9 +52,7 @@ class Cars extends Component {
         </div>
       </div>
     )
-  }
-};
 
-Cars.contextType = CarsContext;
+};
 
 export default Cars;
